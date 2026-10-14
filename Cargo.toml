@@ -29,9 +29,10 @@ memchr = "2"
 simdutf8 = "0.1.5"
 dragonbox_ecma = "0.1.12"
 mimalloc-safe = { version = "0.1.67", features = ["v3"] }
-# Pin exactly: 1.1.2 uses Unicode 15.1.0, matching the pinned TypeScript identifier tables.
-# Newer Unicode versions accept additional identifier characters; upgrade only when TypeScript's tables change.
-unicode-id-start = "=1.1.2"
+# 1.1.2 uses Unicode 15.1.0, matching the pinned TypeScript identifier tables; newer releases accept
+# additional identifier characters. Compatible releases are allowed so that a consumer that also links
+# crates needing a newer 1.x release (for example SWC) can resolve one version in its own lockfile.
+unicode-id-start = "1.1.2"
 tsrs_core = { path = "crates/tsrs_core" }
 tsrs_diagnostics = { path = "crates/tsrs_diagnostics" }
 tsrs_spanmap = { path = "crates/tsrs_spanmap" }
